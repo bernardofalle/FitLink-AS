@@ -1,8 +1,8 @@
+import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/Screens/Welcome/components/background.dart';
 import 'package:fitlink/components/rounded_button.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -17,7 +17,9 @@ class Body extends StatelessWidget {
           children: <Widget>[
             Image.asset("assets/icons/fitLogin.png",
             height: size.height * 0.2,
-            width: size.width * 0.7,), 
+            width: size.width * 0.5,
+            scale: 0.1,
+            ), 
             SizedBox(height: size.height * 0.1,  // espaço entre imagem e fitlink
             ),
             Text(
@@ -25,14 +27,19 @@ class Body extends StatelessWidget {
             style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white, fontSize: 30),
           ),
           RoundedButton(
-            text: "Login",
-            press: () {},
+            text: "Sign up",
+            press: () {}, 
           ),
           RoundedButton(
             text: "Sign in with Email",
             color: kPrimaryLightColor,
             textColor: Colors.black,
-            press: () {},
+            press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                );
+              }
           ),
           ],
           ),

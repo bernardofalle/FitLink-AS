@@ -1,3 +1,4 @@
+import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -25,7 +26,12 @@ class RoundedButton extends StatelessWidget {
         child: FlatButton(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           color: color,
-          onPressed: () {}, 
+          onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                );
+          }, 
           child: Text(
             text,
             style: TextStyle(color: textColor),
