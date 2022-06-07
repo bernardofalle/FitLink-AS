@@ -1,3 +1,4 @@
+import 'package:fitlink/Screens/Profile/home_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,10 +38,20 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             color: Theme.of(context).accentColor,
                             shape: BoxShape.circle,
                           ),
-                          child: Icon(
-                            LineAwesomeIcons.pen, 
-                            color: kDarkPrimaryColor,
-                            size: ScreenUtil().setSp(kSpacingUnit.w * 1.5),),
+                          child: IconButton(
+                            icon: Icon(
+                              LineAwesomeIcons.pen, 
+                              color: kDarkPrimaryColor,
+                              size: ScreenUtil().setSp(kSpacingUnit.w * 1.5),
+                              ),
+                              onPressed: () { 
+                                  print("ollaaaaa");
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                                  );
+                               },
+                          ),
                         ),
                       )
                       ],
