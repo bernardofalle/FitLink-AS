@@ -2,6 +2,7 @@ import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -72,48 +73,180 @@ class _HomeScreenState extends State<HomeScreen> {
                         borderRadius: BorderRadius.circular(28),
                         color: Colors.grey,
                       ),
-                    );
-              }),
-            ),
-
-            // https://youtu.be/IyFUW7JAvTQ?t=683  tou aqui 
-            Container(
-              height: 200,
-              width: 200,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(left: 16,right: 6),
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 10,right: 10),
-                      height: 185,
-                      width: 185,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(28),
-                        color: Colors.grey,
+                      child: InkWell(
+                        onTap: (() {
+                          print("TA A DAR IR PARA O PROXIMO ECRA CRL");
+                        }),
+                        child: Stack(
+                          children: <Widget>[
+                            Positioned(
+                              left: 30,
+                              top: 20,
+                              child: Text("Daily progress",style: GoogleFonts.inter(
+                                fontSize: 30,
+                                fontWeight: FontWeight.w700,
+                                color: kLightPrimaryColor,
+                              ),),
+                            ),
+                          ],
+                        ),
                       ),
                     );
               }),
+            ), 
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Categories',style: kTitleTextStyle2),
+                ],
+              ),
             ),
-            Container(
-              height: 200,
-              width: 200,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(left: 16,right: 6),
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 10,right: 10),
-                      height: 185,
-                      width: 185,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(28),
-                        color: Colors.grey,
+            Row(
+              children: [
+                Container(
+                  height: 200,
+                  width: 200,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.only(left: 16,right: 6),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          height: 185,
+                          width: 185,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(28),
+                            color: Colors.grey,
+                          ),
+                        child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            left: 10,
+                            top: 20,
+                            child: Text("Workout Plan",style: GoogleFonts.inter(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: kLightPrimaryColor,
+                            ),),
+                          ),
+                         /* LinearPercentIndicator(
+                            lineHeight: 40,
+                            percent: 33,
+                            progressColor: Colors.deepPurple,
+                            backgroundColor: Colors.deepPurple.shade200,
+                          ),*/
+                        ],
                       ),
-                    );
-              }),
+                        );
+                  }),
+                ),
+                Container(
+                  height: 200,
+                  width: 200,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.only(left: 16,right: 6),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          height: 185,
+                          width: 185,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(28),
+                            color: Colors.grey,
+                          ),
+                        child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            left: 10,
+                            top: 20,
+                            child: Text("Talk with\nCoaches",style: GoogleFonts.inter(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: kLightPrimaryColor,
+                            ),
+                            ),
+                          ),
+                        ],
+                      ),
+                        );
+                  }),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                  height: 200,
+                  width: 200,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.only(left: 16,right: 6),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          height: 185,
+                          width: 185,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(28),
+                            color: Colors.grey,
+                          ),
+                        child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            left: 10,
+                            top: 20,
+                            child: Text("Journaling",style: GoogleFonts.inter(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: kLightPrimaryColor,
+                            ),
+                            ),
+                          ),
+                        ],
+                      ),
+                        );
+                  }),
+                ),
+                Container(
+                  height: 200,
+                  width: 200,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                      padding: EdgeInsets.only(left: 16,right: 6),
+                      itemCount: 1,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          height: 185,
+                          width: 185,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(28),
+                            color: Colors.grey,
+                          ),
+                        child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            left: 10,
+                            top: 20,
+                            child: Text("Eating",style: GoogleFonts.inter(
+                              fontSize: 20,
+                              fontWeight: FontWeight.w700,
+                              color: kLightPrimaryColor,
+                            ),
+                            ),
+                          ),
+                        ],
+                      ),
+                        );
+                  }),
+                ),
+              ],
             ),
           ],
         ),
