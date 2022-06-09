@@ -1,3 +1,4 @@
+import 'package:fitlink/Screens/Profile/home_screen.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class RoundedButton extends StatelessWidget {
           onPressed: () {
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
           }, 
           child: Text(

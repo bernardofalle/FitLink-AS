@@ -1,4 +1,5 @@
 import 'package:fitlink/Screens/Profile/dailyprogress_screen.dart';
+import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -33,13 +34,20 @@ class _HomeScreenState extends State<HomeScreen> {
                     },
                     child: Icon(LineAwesomeIcons.bars)
                   ),
-                  Container(
-                    height: 59,
-                    width: 59,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      image: DecorationImage(image: AssetImage("assets/images/avatar.jfif")),
+                  InkWell(
+                    child: Container(
+                      // ir para o profile
+                      height: 59,
+                      width: 59,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        image: DecorationImage(image: AssetImage("assets/images/avatar.jfif")),
+                      ),
                     ),
+                    onTap: (){
+                      Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ProfileScreen()),);
+                    },
                   ),
                 ],
               ),

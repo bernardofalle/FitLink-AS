@@ -1,3 +1,4 @@
+import 'package:fitlink/Screens/Profile/home_screen.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/Screens/Welcome/components/background.dart';
 import 'package:fitlink/components/rounded_button.dart';
@@ -37,7 +38,7 @@ class Body extends StatelessWidget {
             press: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen()),
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
                 );
               }
           ),

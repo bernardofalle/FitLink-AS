@@ -46,10 +46,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               ),
                               onPressed: () { 
                                   print("ollaaaaa");
-                                  Navigator.push(
+                                  /*Navigator.push(
                                     context,
                                     MaterialPageRoute(builder: (context) => HomeScreen()),
-                                  );
+                                  );*/
                                },
                           ),
                         ),
@@ -82,7 +82,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(width: kSpacingUnit.w*3,),
-              Icon(LineAwesomeIcons.arrow_left, size: ScreenUtil().setSp(kSpacingUnit.w * 3),),
+              IconButton(
+                onPressed: (){
+                  Navigator.pop(context);
+                },
+                icon: Icon(LineAwesomeIcons.arrow_left, size: ScreenUtil().setSp(kSpacingUnit.w * 3),),),
               profileInfo,
               Icon(LineAwesomeIcons.sun, size: ScreenUtil().setSp(kSpacingUnit.w * 3),),
               SizedBox(width: kSpacingUnit.w*3,),
