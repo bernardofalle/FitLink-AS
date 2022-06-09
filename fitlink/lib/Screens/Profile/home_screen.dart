@@ -2,6 +2,7 @@ import 'package:fitlink/Screens/Profile/dailyprogress_screen.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,6 +17,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
+    
     return Scaffold(
       body: Container(
         margin: EdgeInsets.only(top: 8),
