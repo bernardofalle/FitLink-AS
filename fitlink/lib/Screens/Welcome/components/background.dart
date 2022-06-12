@@ -1,3 +1,4 @@
+import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,7 +15,7 @@ class Background extends StatelessWidget {
     return Container(
       decoration: new BoxDecoration(
         borderRadius: new BorderRadius.circular(16.0),
-        color: Colors.black87,
+        color: kDarkPrimaryColor,
       ),
       height: size.height,
       width: double.infinity,
