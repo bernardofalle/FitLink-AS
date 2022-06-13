@@ -1,3 +1,4 @@
+import 'package:fitlink/Screens/Profile/zegreg_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -60,6 +61,10 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
                       child: InkWell(
                         onTap: () {
                           print("ze");
+                          Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ZeGregScreen()),
+                                  );
                         },
                         child: Image(image: AssetImage("assets/images/zegregorio.png"),))
                     ),
