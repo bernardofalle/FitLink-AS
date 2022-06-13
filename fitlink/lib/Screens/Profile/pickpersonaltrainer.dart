@@ -46,6 +46,98 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
                 ],
               ),
             ),
+            Container(
+              margin: EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 170.0,
+                      height: 220.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        color: Colors.black38,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          print("ze");
+                        },
+                        child: Image(image: AssetImage("assets/images/zegregorio.png"),))
+                    ),
+                    SizedBox(width: 30,),
+                    Container(
+                      width: 170.0,
+                      height: 220.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        color: Colors.black38,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          print("Larry");
+                        },
+                        child: Image(image: AssetImage("assets/images/larry.jpg",),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 70),
+              child: Row(
+                children: <Widget>[
+                  Text('Zé Gregório'),
+                  SizedBox(width: 110,),
+                  Text('Larry Wheels'),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(20.0),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 170.0,
+                      height: 220.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        color: Colors.black38,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          print("Jeff");
+                        },
+                        child: Image(image: AssetImage("assets/images/jeff.jpg"),))
+                    ),
+                    SizedBox(width: 30,),
+                    Container(
+                      width: 170.0,
+                      height: 220.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                        color: Colors.black38,
+                      ),
+                      child: InkWell(
+                        onTap: () {
+                          print("Chrisss");
+                        },
+                        child: Image(image: AssetImage("assets/images/chris.jpg",),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 70),
+              child: Row(
+                children: <Widget>[
+                  Text('Jeff Nippard'),
+                  SizedBox(width: 110,),
+                  Text('Chris Heria'),
+                ],
+              ),
+            ),
           ],
         ),
       ),
