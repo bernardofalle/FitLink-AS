@@ -1,4 +1,5 @@
 import 'package:fitlink/Screens/Profile/home_screen.dart';
+import 'package:fitlink/Screens/Profile/star_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -88,7 +89,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 },
                 icon: Icon(LineAwesomeIcons.arrow_left, size: ScreenUtil().setSp(kSpacingUnit.w * 3),),),
               profileInfo,
-              Icon(LineAwesomeIcons.sun, size: ScreenUtil().setSp(kSpacingUnit.w * 3),),
+              IconButton(
+                  onPressed: (){
+                    Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => StarScreen()),
+                      );
+                },
+                icon: Icon(LineAwesomeIcons.star, size: ScreenUtil().setSp(kSpacingUnit.w * 3),)),
               SizedBox(width: kSpacingUnit.w*3,),
             ],
           );
