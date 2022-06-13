@@ -52,7 +52,7 @@ class _TalkWithCoachesState extends State<TalkWithCoaches> {
               margin: EdgeInsets.symmetric(horizontal: kSpacingUnit.w * 4).copyWith(bottom: kSpacingUnit.w * 2,),
               padding: EdgeInsets.symmetric(horizontal: kSpacingUnit.w * 2),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kSpacingUnit.w * 3),
+                borderRadius: BorderRadius.circular(kSpacingUnit.w * 2),
                 color: Theme.of(context).backgroundColor
               ),
               child: Row(
@@ -74,7 +74,7 @@ class _TalkWithCoachesState extends State<TalkWithCoaches> {
               margin: EdgeInsets.symmetric(horizontal: kSpacingUnit.w * 4).copyWith(bottom: kSpacingUnit.w * 2,),
               padding: EdgeInsets.symmetric(horizontal: kSpacingUnit.w * 2),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(kSpacingUnit.w * 3),
+                borderRadius: BorderRadius.circular(kSpacingUnit.w * 2),
                 color: Theme.of(context).backgroundColor
               ),
               child: Row(
