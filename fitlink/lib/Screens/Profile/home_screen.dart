@@ -10,7 +10,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -20,25 +20,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
-    
+
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 8),
+        margin: const EdgeInsets.only(top: 8),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: <Widget>[
             // Custom Bar
             Container(
-              margin: EdgeInsets.only(left: 16,right: 16,top: 16),
+              margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   GestureDetector(
-                    onTap: (){
-                      print("drawer");
-                    },
-                    child: Icon(LineAwesomeIcons.bars)
-                  ),
+                      onTap: () {
+                        print("drawer");
+                      },
+                      child: const Icon(LineAwesomeIcons.bars)),
                   InkWell(
                     child: Container(
                       // ir para o profile
@@ -46,19 +45,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: 59,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        image: DecorationImage(image: AssetImage("assets/images/avatar.jfif")),
+                        image: const DecorationImage(
+                            image: AssetImage("assets/images/avatar.jfif")),
                       ),
                     ),
-                    onTap: (){
-                      Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => ProfileScreen()),);
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ProfileScreen()),
+                      );
                     },
                   ),
                 ],
               ),
             ),
             // card section
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Padding(
@@ -66,8 +69,11 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Hello',style: kTitleTextStyle2),
-                  Text('Catarina',style: kTitleTextStyle2,)
+                  Text('Hello', style: kTitleTextStyle2),
+                  Text(
+                    'Catarina',
+                    style: kTitleTextStyle2,
+                  )
                 ],
               ),
             ),
@@ -75,12 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 200,
               width: 370,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                  padding: EdgeInsets.only(left: 16,right: 6),
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.only(left: 16, right: 6),
                   itemCount: 1,
                   itemBuilder: (context, index) {
                     return Container(
-                      margin: EdgeInsets.only(bottom: 10,right: 10,left: 5),
+                      margin:
+                          const EdgeInsets.only(bottom: 10, right: 10, left: 5),
                       height: 200,
                       width: 370,
                       decoration: BoxDecoration(
@@ -91,33 +98,37 @@ class _HomeScreenState extends State<HomeScreen> {
                         onTap: (() {
                           print("TA A DAR IR PARA O PROXIMO ECRA CRL");
                           Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => DailyProgress()),
-                                  );
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => DailyProgress()),
+                          );
                         }),
                         child: Stack(
                           children: <Widget>[
                             Positioned(
                               left: 30,
                               top: 20,
-                              child: Text("Daily progress",style: GoogleFonts.inter(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w700,
-                                color: kLightPrimaryColor,
-                              ),),
+                              child: Text(
+                                "Daily progress",
+                                style: GoogleFonts.inter(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w700,
+                                  color: kLightPrimaryColor,
+                                ),
+                              ),
                             ),
                           ],
                         ),
                       ),
                     );
-              }),
-            ), 
+                  }),
+            ),
             Padding(
               padding: const EdgeInsets.all(10.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Categories',style: kTitleTextStyle2),
+                  Text('Categories', style: kTitleTextStyle2),
                 ],
               ),
             ),
@@ -127,84 +138,95 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 200,
                   width: 200,
                   child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.only(left: 16,right: 6),
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 16, right: 6),
                       itemCount: 1,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
                           width: 185,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
                           ),
-                        child: InkWell(
-                          onTap: (() {
-                                Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => WorkoutScreen()),);
-                          }),
-                          child: Stack(
-                          children: <Widget>[
-                            Positioned(
-                              left: 10,
-                              top: 20,
-                              child: Text("Workout Plan",style: GoogleFonts.inter(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: kLightPrimaryColor,
-                              ),),
-                            ),
-                           /* LinearPercentIndicator(
+                          child: InkWell(
+                            onTap: (() {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => WorkoutScreen()),
+                              );
+                            }),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  left: 10,
+                                  top: 20,
+                                  child: Text(
+                                    "Workout Plan",
+                                    style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: kLightPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                                /* LinearPercentIndicator(
                               lineHeight: 40,
                               percent: 33,
                               progressColor: Colors.deepPurple,
                               backgroundColor: Colors.deepPurple.shade200,
                             ),*/
-                          ],
-                                              ),
-                        ),
+                              ],
+                            ),
+                          ),
                         );
-                  }),
+                      }),
                 ),
                 Container(
                   height: 200,
                   width: 200,
                   child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.only(left: 16,right: 6),
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 16, right: 6),
                       itemCount: 1,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
                           width: 185,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
                           ),
-                        child: InkWell(
-                          onTap: (){
-                            Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => TalkWithCoaches()),);
-                          },
-                          child: Stack(
-                          children: <Widget>[
-                            Positioned(
-                              left: 10,
-                              top: 20,
-                              child: Text("Talk with\nCoaches",style: GoogleFonts.inter(
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                color: kLightPrimaryColor,
-                              ),
-                              ),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => TalkWithCoaches()),
+                              );
+                            },
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  left: 10,
+                                  top: 20,
+                                  child: Text(
+                                    "Talk with\nCoaches",
+                                    style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: kLightPrimaryColor,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
-                                              ),
-                        ),
+                          ),
                         );
-                  }),
+                      }),
                 ),
               ],
             ),
@@ -214,67 +236,71 @@ class _HomeScreenState extends State<HomeScreen> {
                   height: 200,
                   width: 200,
                   child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.only(left: 16,right: 6),
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 16, right: 6),
                       itemCount: 1,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
                           width: 185,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
                           ),
-                        child: Stack(
-                        children: <Widget>[
-                          Positioned(
-                            left: 10,
-                            top: 20,
-                            child: Text("Journaling",style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color: kLightPrimaryColor,
-                            ),
-                            ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                left: 10,
+                                top: 20,
+                                child: Text(
+                                  "Journaling",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: kLightPrimaryColor,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
                         );
-                  }),
+                      }),
                 ),
                 Container(
                   height: 200,
                   width: 200,
                   child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.only(left: 16,right: 6),
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.only(left: 16, right: 6),
                       itemCount: 1,
                       itemBuilder: (context, index) {
                         return Container(
-                          margin: EdgeInsets.only(bottom: 10,right: 10),
+                          margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
                           width: 185,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
                           ),
-                        child: Stack(
-                        children: <Widget>[
-                          Positioned(
-                            left: 10,
-                            top: 20,
-                            child: Text("Eating",style: GoogleFonts.inter(
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                              color: kLightPrimaryColor,
-                            ),
-                            ),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned(
+                                left: 10,
+                                top: 20,
+                                child: Text(
+                                  "Eating",
+                                  style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: kLightPrimaryColor,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
                         );
-                  }),
+                      }),
                 ),
               ],
             ),
