@@ -28,7 +28,8 @@ class AuthService {
         email: email, password: password);
 
     //create new doc for the user with this uid
-    await DatabaseService(uid: credential.user!.uid).updateUserData('', '', '');
+    await DatabaseService(uid: credential.user!.uid)
+        .updateUserData('', '', '', '');
     return _userFromFirebaseUser(credential.user);
   }
 
