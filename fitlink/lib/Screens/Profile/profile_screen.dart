@@ -131,13 +131,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                    icon: LineAwesomeIcons.user_friends,
                    text: 'Invite Link',
                  ),
-                ElevatedButton(
-                onPressed: () {
-                  
-                  authService.signOut();
-                  Navigator.pop(context);
-                },
-                child: const Text("Logout")),
+                Container(
+                  child: InkWell(
+                    onTap: () {
+                            authService.signOut();
+                            Navigator.pop(context);
+                    },
+                    child: Icon(Icons.logout))),
                ],
             ),
           ),
