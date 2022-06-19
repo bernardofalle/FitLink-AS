@@ -1,6 +1,7 @@
 import 'package:fitlink/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({
@@ -42,11 +43,38 @@ class RegisterScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () async {
-              await authService.registerWithEmailAndPassword(
-                emailController.text,
-                pwController.text,
-              );
-              Navigator.pop(context);
+              if(pwController.text.length < 6 )
+              {
+                Fluttertoast.showToast(
+                    msg: "Atleast 6 digits in password!",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.transparent,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
+              }
+              if(emailController.text.contains("@") != true || emailController.text.contains(".") != true )
+              {
+                Fluttertoast.showToast(
+                    msg: "Please use a valid email: ______@___.___",
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.CENTER,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.transparent,
+                    textColor: Colors.white,
+                    fontSize: 16.0
+                );
+              }
+              else{
+                await authService.registerWithEmailAndPassword(
+                  emailController.text,
+                  pwController.text,
+                );
+                Navigator.pop(context);
+
+              }
             },
             child: Text("Register"),
           ),
