@@ -1,18 +1,19 @@
 import 'package:fitlink/Screens/Profile/home_screen.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
+import 'package:fitlink/Screens/Welcome/sign_in.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 
 class RoundedButton extends StatelessWidget {
   final String text;
   final Function press;
-  final Color color,textColor;
-  
+  final Color color, textColor;
+
   const RoundedButton({
-    Key? key, 
-    this.text = "Login", 
-    required this.press, 
-    this.color = kPrimaryColor, 
+    Key? key,
+    this.text = "Login",
+    required this.press,
+    this.color = kPrimaryColor,
     this.textColor = Colors.white,
   }) : super(key: key);
 
@@ -27,17 +28,12 @@ class RoundedButton extends StatelessWidget {
         child: FlatButton(
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
           color: color,
-          onPressed: () {
-                  Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => HomeScreen()),
-                );
-          }, 
+          onPressed: () {},
           child: Text(
             text,
             style: TextStyle(color: textColor),
-            ),
           ),
+        ),
       ),
     );
   }

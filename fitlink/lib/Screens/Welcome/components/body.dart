@@ -1,6 +1,7 @@
 import 'package:fitlink/Screens/Profile/home_screen.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/Screens/Welcome/components/background.dart';
+import 'package:fitlink/Screens/Welcome/sign_in.dart';
 import 'package:fitlink/components/rounded_button.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
@@ -32,20 +33,16 @@ class Body extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 30),
             ),
-            RoundedButton(
-              text: "Sign up",
-              press: () {},
-            ),
-            RoundedButton(
-                text: "Sign in with Email",
-                color: kPrimaryLightColor,
-                textColor: Colors.black,
-                press: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                  );
-                }),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/register');
+                },
+                child: Text("Register")),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/login');
+                },
+                child: Text("Sign in with email")),
           ],
         ),
       ),
