@@ -41,9 +41,13 @@ class LoginScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () async {
-              await authService.signInWithEmailAndPassword(
+              dynamic result = await authService.signInWithEmailAndPassword(
                   emailController.text, pwController.text);
-              Navigator.pop(context);
+              if (result == null) {
+                print('cant login');
+              } else {
+                Navigator.pop(context);
+              }
             },
             child: const Text("LogIn"),
           ),

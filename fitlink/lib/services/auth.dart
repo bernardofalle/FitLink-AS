@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:fitlink/models/myuser.dart';
+import 'package:fitlink/services/database.dart';
 
 class AuthService {
   final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
@@ -26,6 +27,8 @@ class AuthService {
     final credential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
 
+    //create new doc for the user with this uid
+    await DatabaseService(uid: credential.user!.uid).updateUserData('', '', '');
     return _userFromFirebaseUser(credential.user);
   }
 
