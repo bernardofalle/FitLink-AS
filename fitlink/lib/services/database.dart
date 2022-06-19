@@ -21,8 +21,20 @@ class DatabaseService {
     });
   }
 
-  Future updateUserPT() async {
-    return await mainDB.doc(uid).set({});
+  Future updateUserPT(String ptUid) async {
+    return await mainDB.doc(uid).update({'ptId': ptUid});
+  }
+
+  Future updateUserNUT(String nutUid) async {
+    return await mainDB.doc(uid).update({'nutId': nutUid});
+  }
+
+  Future updateUserPTplan(String planUid) async {
+    return await mainDB.doc(uid).update({'planId': planUid});
+  }
+
+  Future updateUserNUTplan(String nutplanUid) async {
+    return await mainDB.doc(uid).update({'nutplanUid': nutplanUid});
   }
 
   Future addUserPlan(String userUid) async {
