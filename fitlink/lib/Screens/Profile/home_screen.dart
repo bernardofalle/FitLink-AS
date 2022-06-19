@@ -4,7 +4,6 @@ import 'package:fitlink/Screens/Profile/talkwithcoaches_screen.dart';
 import 'package:fitlink/Screens/Profile/workout_screen.dart';
 import 'package:fitlink/constants.dart';
 import 'package:fitlink/services/auth.dart';
-import 'package:fitlink/services/auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -23,7 +22,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
-    final authService = Provider.of<AuthService>(context);
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.only(top: 8),
@@ -31,11 +29,6 @@ class _HomeScreenState extends State<HomeScreen> {
           physics: const ClampingScrollPhysics(),
           children: <Widget>[
             // Custom Bar
-            ElevatedButton(
-                onPressed: () {
-                  authService.signOut();
-                },
-                child: const Text("Logout")),
             Container(
               margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
               child: Row(

@@ -5,6 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
+import 'package:fitlink/services/auth.dart';
+import 'package:provider/provider.dart';
+
 class ProfileScreen extends StatefulWidget {
   ProfileScreen({Key? key}) : super(key: key);
 
@@ -13,8 +16,14 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  
+
   @override
   Widget build(BuildContext context) {
+
+    
+    final authService = Provider.of<AuthService>(context);
+
     ScreenUtil.init(context);
     
     var profileInfo = Expanded(
@@ -122,6 +131,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                    icon: LineAwesomeIcons.user_friends,
                    text: 'Invite Link',
                  ),
+                ElevatedButton(
+                onPressed: () {
+                  
+                  authService.signOut();
+                  Navigator.pop(context);
+                },
+                child: const Text("Logout")),
                ],
             ),
           ),

@@ -16,7 +16,7 @@ class LoginScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('login'),
+        title: const Text('Login'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -51,11 +51,16 @@ class LoginScreen extends StatelessWidget {
             },
             child: const Text("LogIn"),
           ),
-          ElevatedButton(
-              onPressed: () {
+          InkWell(
+            onTap: () {
                 Navigator.pushNamed(context, '/register');
-              },
-              child: const Text("Register"))
+            },
+            child: Container(
+          
+                child: Text("Have no accout? Register here.",style: TextStyle(decoration: TextDecoration.underline),),
+            ),
+          ),
+
         ],
       ),
     );
