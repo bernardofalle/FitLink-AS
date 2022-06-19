@@ -23,7 +23,7 @@ class RegisterScreen extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
+            child: TextFormField(
               controller: emailController,
               decoration: const InputDecoration(
                 labelText: "Email",
@@ -32,7 +32,8 @@ class RegisterScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
+            child: TextFormField(
+              obscureText: true,
               controller: pwController,
               decoration: const InputDecoration(
                 labelText: "Password",

@@ -32,7 +32,8 @@ class LoginScreen extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
+            child: TextFormField(
+              obscureText: true,
               controller: pwController,
               decoration: const InputDecoration(
                 labelText: "Password",
