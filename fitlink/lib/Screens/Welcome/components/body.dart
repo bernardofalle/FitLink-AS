@@ -33,16 +33,27 @@ class Body extends StatelessWidget {
                   color: Colors.white,
                   fontSize: 30),
             ),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/register');
-                },
-                child: Text("Register")),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/login');
-                },
-                child: Text("Sign in with email")),
+            Container(
+              padding: EdgeInsets.only(top: 10),
+              width: 300,
+              height: 50,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  child: Text("Register")),
+            ),
+            Container(
+              padding: EdgeInsets.only(top:10),
+              width: 300,
+              height: 50,
+              child: ElevatedButton(
+                
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/login');
+                  },
+                  child: Text("Sign in with email")),
+            ),
           ],
         ),
       ),
