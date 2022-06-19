@@ -34,16 +34,6 @@ class Body extends StatelessWidget {
                   fontSize: 30),
             ),
             Container(
-              padding: EdgeInsets.only(top: 10),
-              width: 300,
-              height: 50,
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/register');
-                  },
-                  child: Text("Register")),
-            ),
-            Container(
               padding: EdgeInsets.only(top:10),
               width: 300,
               height: 50,
@@ -53,6 +43,16 @@ class Body extends StatelessWidget {
                     Navigator.pushNamed(context, '/login');
                   },
                   child: Text("Sign in with email")),
+            ),
+            Container(
+              padding: EdgeInsets.only(top: 10),
+              width: 300,
+              height: 50,
+              child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/register');
+                  },
+                  child: Text("Register")),
             ),
           ],
         ),
