@@ -1,3 +1,4 @@
+import 'package:fitlink/Screens/Profile/picknutritionist.dart';
 import 'package:fitlink/Screens/Profile/pickpersonaltrainer.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +19,13 @@ class _StarScreenState extends State<StarScreen> {
 
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 8),
+        margin: const EdgeInsets.only(top: 8),
         child: ListView(
-          physics: ClampingScrollPhysics(),
+          physics: const ClampingScrollPhysics(),
           children: <Widget>[
             // Custom Bar
             Container(
-              margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+              margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
@@ -43,11 +44,11 @@ class _StarScreenState extends State<StarScreen> {
                         print("back");
                         Navigator.pop(context);
                       },
-                      child: Icon(LineAwesomeIcons.times)),
+                      child: const Icon(LineAwesomeIcons.times)),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 100,
             ),
             Container(
@@ -60,27 +61,27 @@ class _StarScreenState extends State<StarScreen> {
                 onPressed: () {
                   print("?REMIUM");
                 },
-                child: Text(
+                child: const Text(
                   'Upgrade to Premium',
-                  style: TextStyle(color: Colors.white),
+                  style: const TextStyle(color: Colors.white),
                 ),
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(
-                      Color.fromARGB(255, 207, 97, 134)),
-                  padding:
-                      MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
+                      const Color.fromARGB(255, 207, 97, 134)),
+                  padding: MaterialStateProperty.all<EdgeInsets>(
+                      const EdgeInsets.all(15)),
                   foregroundColor: MaterialStateProperty.all<Color>(
-                      Color.fromARGB(255, 207, 97, 134)),
+                      const Color.fromARGB(255, 207, 97, 134)),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18.0),
-                        side: BorderSide(
-                            color: Color.fromARGB(255, 207, 97, 134))),
+                        side: const BorderSide(
+                            color: const Color.fromARGB(255, 207, 97, 134))),
                   ),
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Container(
@@ -100,7 +101,11 @@ class _StarScreenState extends State<StarScreen> {
                   ),
                   InkWell(
                     onTap: () {
-                      print("nutricionist");
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PickNutriScreen()),
+                      );
                     },
                     child: Text(
                       "Pick a Nutricionist",
@@ -109,12 +114,12 @@ class _StarScreenState extends State<StarScreen> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   //Icon(LineAwesomeIcons.sms, size: kSpacingUnit.w * 2.5,),
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Container(
@@ -147,7 +152,7 @@ class _StarScreenState extends State<StarScreen> {
                       ),
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   //Icon(LineAwesomeIcons.sms, size: kSpacingUnit.w * 2.5, ),
                 ],
               ),

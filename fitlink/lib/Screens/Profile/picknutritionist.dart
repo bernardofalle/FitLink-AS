@@ -13,36 +13,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class PickPersonalScreen extends StatefulWidget {
-  PickPersonalScreen({Key? key}) : super(key: key);
+class PickNutriScreen extends StatefulWidget {
+  PickNutriScreen({Key? key}) : super(key: key);
 
   @override
-  State<PickPersonalScreen> createState() => _PickPersonalScreenState();
+  State<PickNutriScreen> createState() => _PickNutriScreenState();
 }
 
-class _PickPersonalScreenState extends State<PickPersonalScreen> {
+class _PickNutriScreenState extends State<PickNutriScreen> {
   @override
   Widget build(BuildContext context) {
-    Stream<QuerySnapshot<Map<String, dynamic>>> ptCollec =
-        FirebaseFirestore.instance.collection('ptcollection').snapshots();
+    Stream<QuerySnapshot<Map<String, dynamic>>> nutCollec =
+        FirebaseFirestore.instance.collection('nutcollection').snapshots();
 
     ScreenUtil.init(context);
     final FirebaseAuth auth = FirebaseAuth.instance;
     User? currentUser = auth.currentUser;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Pick a Personal Trainer"),
+        title: const Text("Pick a Nutritionist"),
         backgroundColor: kDarkPrimaryColor,
       ),
       body: Container(
         child: StreamBuilder<QuerySnapshot>(
-          stream: ptCollec,
+          stream: nutCollec,
           builder: (
             BuildContext context,
             AsyncSnapshot<QuerySnapshot> snapshot,
           ) {
             if (snapshot.hasError) {
-              return const Text("Something went wron.");
+              return const Text("Something went wrong.");
             }
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Text("Loading");
@@ -57,7 +57,7 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
                     margin: const EdgeInsets.only(top: 20),
                     child: ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                          primary: Color.fromARGB(255, 230, 200, 82),
+                          primary: Color.fromARGB(255, 56, 194, 236),
                           shadowColor: const Color.fromARGB(255, 255, 0, 0),
                           padding: const EdgeInsets.symmetric(
                               horizontal: 20, vertical: 10),
@@ -67,7 +67,7 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
                         //print("${data.docs[index].reference.id}");
                         // aqui dar update a db e bazar da pagina
                         await DatabaseService(uid: currentUser!.uid)
-                            .updateUserPT(data.docs[index].reference.id);
+                            .updateUserNUT(data.docs[index].reference.id);
                         _showToast(context, data.docs[index]["name"]);
 
                         Navigator.push(

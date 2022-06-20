@@ -31,7 +31,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     ScreenUtil.init(context);
     final FirebaseAuth auth = FirebaseAuth.instance;
     String currentUser = auth.currentUser!.uid;
-    print(currentUser);
 
     return Scaffold(
       body: Container(
@@ -57,7 +56,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                   ),
                   GestureDetector(
                       onTap: () {
-                        print("back");
+                        //print("back");
                         Navigator.pop(context);
                       },
                       child: const Icon(LineAwesomeIcons.times)),
@@ -110,11 +109,11 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               margin: const EdgeInsets.only(left: 130, right: 130, top: 20),
               child: ElevatedButton(
                 onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => PlanT()),
-                    );
-                  
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => PlanT()),
+                  );
+
                   //DatabaseService(uid: currentUser).getPTplans();
                 },
                 child: const Text(

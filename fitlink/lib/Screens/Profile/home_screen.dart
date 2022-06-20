@@ -1,4 +1,5 @@
 import 'package:fitlink/Screens/Profile/dailyprogress_screen.dart';
+import 'package:fitlink/Screens/Profile/nut_plan.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/Screens/Profile/talkwithcoaches_screen.dart';
 import 'package:fitlink/Screens/Profile/workout_screen.dart';
@@ -284,21 +285,36 @@ class _HomeScreenState extends State<HomeScreen> {
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
                           ),
-                          child: Stack(
-                            children: <Widget>[
-                              Positioned(
-                                left: 10,
-                                top: 20,
-                                child: Text(
-                                  "Eating",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: kLightPrimaryColor,
+                          child: InkWell(
+                            onTap: (() {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PlanNUT()),
+                              );
+                            }),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned(
+                                  left: 10,
+                                  top: 20,
+                                  child: Text(
+                                    "Eating",
+                                    style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: kLightPrimaryColor,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
+                                /* LinearPercentIndicator(
+                              lineHeight: 40,
+                              percent: 33,
+                              progressColor: Colors.deepPurple,
+                              backgroundColor: Colors.deepPurple.shade200,
+                            ),*/
+                              ],
+                            ),
                           ),
                         );
                       }),

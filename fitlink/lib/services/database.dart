@@ -55,12 +55,10 @@ class DatabaseService {
   }
 
   Future<void> getPTplans() async {
-
     Map<Object, Object> plan = {};
 
     ptPlans.get().then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
-
         var thurd = doc["daysofweek"]["Thursday"];
         var fri = doc["daysofweek"]["friday"];
         var mon = doc["daysofweek"]["monday"];
@@ -79,5 +77,29 @@ class DatabaseService {
         print(plan);
       });
     });
+  }
+
+  Future<String> getUserName() async {
+    DocumentReference documentReference = mainDB.doc(uid);
+    String name = '';
+    await documentReference.get().then((snapshot) {
+      name = snapshot['name'];
+    });
+    return name;
+  }
+
+  Future updateUserName(String name) async {
+    return await mainDB.doc(uid).update({
+      'name': name,
+    });
+  }
+
+  Future<String> getUserPT() async {
+    DocumentReference documentReference = mainDB.doc(uid);
+    String pt = '';
+    await documentReference.get().then((snapshot) {
+      pt = snapshot['ptId'];
+    });
+    return pt;
   }
 }
