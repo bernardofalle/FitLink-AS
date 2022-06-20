@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fitlink/Screens/Profile/zegreg_screen.dart';
 import 'package:fitlink/constants.dart';
+import 'package:fitlink/models/personaltrainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -14,15 +18,63 @@ class PickPersonalScreen extends StatefulWidget {
 class _PickPersonalScreenState extends State<PickPersonalScreen> {
   @override
   Widget build(BuildContext context) {
+
+    Stream<QuerySnapshot<Map<String, dynamic>>> ptCollec = FirebaseFirestore.instance.collection('ptcollection').snapshots();
+    
     ScreenUtil.init(context);
 
     return Scaffold(
       body: Container(
-        margin: EdgeInsets.only(top: 8),
-        child: ListView(
-          physics: ClampingScrollPhysics(),
-          children: <Widget>[
-            // Custom Bar
+            child: StreamBuilder<QuerySnapshot>(
+              stream: ptCollec, 
+              builder: (
+                BuildContext context, 
+                AsyncSnapshot<QuerySnapshot> snapshot,
+                ) {
+                  if(snapshot.hasError){
+                    return Text("Something went wron.");
+                  }
+                  if(snapshot.connectionState == ConnectionState.waiting){
+                    return Text("Loading");
+                  }
+
+                  final data = snapshot.requireData;
+
+                  return ListView.builder(
+                    itemCount: data.size ,
+                    itemBuilder: (context, index){
+                      return Container(
+                        margin: EdgeInsets.only(top: 20),
+                        child: 
+                          ElevatedButton.icon(
+                            style: ElevatedButton.styleFrom(
+                              primary: Color.fromARGB(255, 236, 194, 28),
+                              shadowColor: Color.fromARGB(255, 255, 0, 0),
+                              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                              textStyle: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold)),
+                            onPressed: () {print("${data.docs[index]['name']}");},
+
+                            label: 
+                            Text("My name is ${data.docs[index]['name']} and im ${data.docs[index]['age']} and my specialization is ${data.docs[index]['specialization']}"), // <-- Text
+                            icon: Icon( // <-- Icon
+                              Icons.add_box_rounded,
+                              size: 50.0,
+                            ),
+                      
+                      ));
+                    },
+                  );
+                },
+                ),
+          ),
+        );
+  }
+}
+
+
+            /*
             Container(
               margin: EdgeInsets.only(left: 16, right: 16, top: 16),
               child: Row(
@@ -46,106 +98,4 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
                       child: Icon(LineAwesomeIcons.times)),
                 ],
               ),
-            ),
-            Container(
-              margin: EdgeInsets.all(20.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      width: 170.0,
-                      height: 220.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        color: Colors.black38,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          print("ze");
-                          Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => ZeGregScreen()),
-                                  );
-                        },
-                        child: Image(image: AssetImage("assets/images/zegregorio.png"),))
-                    ),
-                    SizedBox(width: 30,),
-                    Container(
-                      width: 170.0,
-                      height: 220.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        color: Colors.black38,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          print("Larry");
-                        },
-                        child: Image(image: AssetImage("assets/images/larry.jpg",),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 70),
-              child: Row(
-                children: <Widget>[
-                  Text('Zé Gregório'),
-                  SizedBox(width: 110,),
-                  Text('Larry Wheels'),
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.all(20.0),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      width: 170.0,
-                      height: 220.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        color: Colors.black38,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          print("Jeff");
-                        },
-                        child: Image(image: AssetImage("assets/images/jeff.jpg"),))
-                    ),
-                    SizedBox(width: 30,),
-                    Container(
-                      width: 170.0,
-                      height: 220.0,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        color: Colors.black38,
-                      ),
-                      child: InkWell(
-                        onTap: () {
-                          print("Chrisss");
-                        },
-                        child: Image(image: AssetImage("assets/images/chris.jpg",),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-            ),
-            Container(
-              margin: EdgeInsets.only(left: 70),
-              child: Row(
-                children: <Widget>[
-                  Text('Jeff Nippard'),
-                  SizedBox(width: 110,),
-                  Text('Chris Heria'),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
+            ),*/
