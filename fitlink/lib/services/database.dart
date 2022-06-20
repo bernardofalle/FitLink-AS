@@ -10,6 +10,8 @@ class DatabaseService {
       FirebaseFirestore.instance.collection('mainDB');
   final CollectionReference userPlans =
       FirebaseFirestore.instance.collection('userPlans');
+  final CollectionReference ptPlans =
+      FirebaseFirestore.instance.collection('ptplans');
 
   Future updateUserData(
       String ptUid, String nutUid, String ptplanUid, String nutplanUid) async {
@@ -22,22 +24,41 @@ class DatabaseService {
   }
 
   Future updateUserPT(String ptUid) async {
-    return await mainDB.doc(uid).update({'ptId': ptUid});
+    return await mainDB.doc(uid).update({
+      'ptId': ptUid,
+    });
   }
 
   Future updateUserNUT(String nutUid) async {
-    return await mainDB.doc(uid).update({'nutId': nutUid});
+    return await mainDB.doc(uid).update({
+      'nutId': nutUid,
+    });
   }
 
   Future updateUserPTplan(String planUid) async {
-    return await mainDB.doc(uid).update({'planId': planUid});
+    return await mainDB.doc(uid).update({
+      'planId': planUid,
+    });
   }
 
   Future updateUserNUTplan(String nutplanUid) async {
-    return await mainDB.doc(uid).update({'nutplanUid': nutplanUid});
+    return await mainDB.doc(uid).update({
+      'nutplanUid': nutplanUid,
+    });
   }
 
-  Future addUserPlan(String userUid) async {
-    return await userPlans.add(uid);
+  Future addUserPlan(String userUid, Map<String, dynamic> plan) async {
+    return await userPlans.add({
+      'userId': userUid,
+      'daysofWeek': plan,
+    });
+  }
+
+  Future<void> getPTplans() async {
+    ptPlans.get().then((QuerySnapshot querySnapshot) {
+      querySnapshot.docs.forEach((doc) {
+        print(doc["daysofweek"]["tuesday"]);
+      });
+    });
   }
 }
