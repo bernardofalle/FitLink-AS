@@ -55,9 +55,28 @@ class DatabaseService {
   }
 
   Future<void> getPTplans() async {
+
+    Map<Object, Object> plan = {};
+
     ptPlans.get().then((QuerySnapshot querySnapshot) {
       querySnapshot.docs.forEach((doc) {
+
+        var thurd = doc["daysofweek"]["Thursday"];
+        var fri = doc["daysofweek"]["friday"];
+        var mon = doc["daysofweek"]["monday"];
+        var tues = doc["daysofweek"]["tuesday"];
+
+        print(doc["daysofweek"]["Thursday"]);
+        print(doc["daysofweek"]["friday"]);
+        print(doc["daysofweek"]["monday"]);
         print(doc["daysofweek"]["tuesday"]);
+
+        plan['Thursday'] = thurd;
+        plan['friday'] = fri;
+        plan['monday'] = mon;
+        plan['tuesday'] = tues;
+
+        print(plan);
       });
     });
   }

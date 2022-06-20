@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitlink/Screens/Profile/plan_temp.dart';
 import 'package:fitlink/constants.dart';
 import 'package:fitlink/services/auth.dart';
 import 'package:fitlink/services/database.dart';
@@ -109,7 +110,12 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
               margin: const EdgeInsets.only(left: 130, right: 130, top: 20),
               child: ElevatedButton(
                 onPressed: () {
-                  DatabaseService(uid: currentUser).getPTplans();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => PlanT()),
+                    );
+                  
+                  //DatabaseService(uid: currentUser).getPTplans();
                 },
                 child: const Text(
                   'Check plan',

@@ -24,6 +24,10 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
     ScreenUtil.init(context);
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Pick a Personal Trainer"),
+        backgroundColor: kDarkPrimaryColor,
+      ),
       body: Container(
             child: StreamBuilder<QuerySnapshot>(
               stream: ptCollec, 
@@ -54,7 +58,11 @@ class _PickPersonalScreenState extends State<PickPersonalScreen> {
                               textStyle: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold)),
-                            onPressed: () {print("${data.docs[index]['name']}");},
+                            onPressed: () {
+                              print("${data.docs[index]['name']}");
+                                // aqui dar update a db e bazar da pagina 
+                              
+                              },
 
                             label: 
                             Text("My name is ${data.docs[index]['name']} and im ${data.docs[index]['age']} and my specialization is ${data.docs[index]['specialization']}"), // <-- Text
