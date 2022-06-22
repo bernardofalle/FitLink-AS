@@ -23,13 +23,13 @@ class AuthService {
 
   //register with email and pw
   Future<MyUser?> registerWithEmailAndPassword(
-      String email, String password) async {
+      String name, String email, String password) async {
     final credential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email, password: password);
 
     //create new doc for the user with this uid
     await DatabaseService(uid: credential.user!.uid)
-        .updateUserData('', '', '', '');
+        .updateUserData(name, '', '', '', '', '');
     return _userFromFirebaseUser(credential.user);
   }
 

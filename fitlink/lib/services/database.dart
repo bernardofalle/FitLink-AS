@@ -13,13 +13,15 @@ class DatabaseService {
   final CollectionReference ptPlans =
       FirebaseFirestore.instance.collection('ptplans');
 
-  Future updateUserData(
-      String ptUid, String nutUid, String ptplanUid, String nutplanUid) async {
+  Future updateUserData(String name, String ptUid, String nutUid,
+      String ptplanUid, String nutplanUid, String wilksCoeff) async {
     return await mainDB.doc(uid).set({
+      'name': name,
       'ptId': ptUid,
       'nutId': nutUid,
       'planId': ptplanUid,
       'nutplanUid': nutplanUid,
+      'wilks_coeff': wilksCoeff,
     });
   }
 
@@ -44,6 +46,12 @@ class DatabaseService {
   Future updateUserNUTplan(String nutplanUid) async {
     return await mainDB.doc(uid).update({
       'nutplanUid': nutplanUid,
+    });
+  }
+
+  Future updateUserCoeff(String wilksCoeff) async {
+    return await mainDB.doc(uid).update({
+      'wilks_coeff': wilksCoeff,
     });
   }
 

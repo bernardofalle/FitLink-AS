@@ -78,6 +78,7 @@ class RegisterScreen extends StatelessWidget {
                     fontSize: 16.0);
               } else {
                 await authService.registerWithEmailAndPassword(
+                  nameController.text,
                   emailController.text,
                   pwController.text,
                 );

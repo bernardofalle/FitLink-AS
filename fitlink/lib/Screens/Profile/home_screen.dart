@@ -1,4 +1,5 @@
 import 'package:fitlink/Screens/Profile/dailyprogress_screen.dart';
+import 'package:fitlink/Screens/Profile/journaling.dart';
 import 'package:fitlink/Screens/Profile/nut_plan.dart';
 import 'package:fitlink/Screens/Profile/profile_screen.dart';
 import 'package:fitlink/Screens/Profile/talkwithcoaches_screen.dart';
@@ -71,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Hello', style: kTitleTextStyle2),
+                  Text('Hello, ', style: kTitleTextStyle2),
                   Text(
                     'Catarina',
                     style: kTitleTextStyle2,
@@ -255,12 +256,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               Positioned(
                                 left: 10,
                                 top: 20,
-                                child: Text(
-                                  "Journaling",
-                                  style: GoogleFonts.inter(
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.w700,
-                                    color: kLightPrimaryColor,
+                                child: InkWell(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Journaling()),
+                                    );
+                                  },
+                                  child: Text(
+                                    "Journaling",
+                                    style: GoogleFonts.inter(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w700,
+                                      color: kLightPrimaryColor,
+                                    ),
                                   ),
                                 ),
                               ),
