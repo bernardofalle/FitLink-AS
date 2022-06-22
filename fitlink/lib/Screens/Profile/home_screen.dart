@@ -139,7 +139,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Container(
                   height: 200,
-                  width: 200,
+                  width: 185,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.only(left: 16, right: 6),
@@ -148,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Container(
                           margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
-                          width: 185,
+                          width: 170,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
@@ -189,7 +189,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   height: 200,
-                  width: 200,
+                  width: 185,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.only(left: 16, right: 6),
@@ -198,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Container(
                           margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
-                          width: 185,
+                          width: 170,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
@@ -237,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Container(
                   height: 200,
-                  width: 200,
+                  width: 185,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.only(left: 16, right: 6),
@@ -246,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Container(
                           margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
-                          width: 185,
+                          width: 170,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,
@@ -282,7 +282,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   height: 200,
-                  width: 200,
+                  width: 185,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       padding: const EdgeInsets.only(left: 16, right: 6),
@@ -291,7 +291,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         return Container(
                           margin: const EdgeInsets.only(bottom: 10, right: 10),
                           height: 185,
-                          width: 185,
+                          width: 170,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(28),
                             color: Colors.grey,

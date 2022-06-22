@@ -82,10 +82,7 @@ class RegisterScreen extends StatelessWidget {
                   emailController.text,
                   pwController.text,
                 );
-                final FirebaseAuth auth = FirebaseAuth.instance;
-                User? currentUser = auth.currentUser;
-                await DatabaseService(uid: currentUser!.uid)
-                    .updateUserName(nameController.text);
+
                 Navigator.pop(context);
               }
             },

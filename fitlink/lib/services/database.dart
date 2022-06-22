@@ -55,10 +55,23 @@ class DatabaseService {
     });
   }
 
-  Future addUserPlan(String userUid, Map<String, dynamic> plan) async {
-    return await userPlans.add({
-      'userId': userUid,
-      'daysofWeek': plan,
+  Future addUserPlan(
+    String monday,
+    String tuesday,
+    String wednesday,
+    String thursday,
+    String friday,
+    String saturday,
+    String sunday,
+  ) async {
+    return await userPlans.doc(uid).set({
+      'monday': monday,
+      'tuesday': tuesday,
+      'wednesday': wednesday,
+      'thursday': thursday,
+      'friday': friday,
+      'saturday': friday,
+      'sunday': sunday,
     });
   }
 

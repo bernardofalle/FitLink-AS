@@ -111,7 +111,9 @@ class _JournalingState extends State<Journaling> {
         FirebaseFirestore.instance.collection('mainDB').doc(currentUser!.uid);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Journaling')),
+      appBar: AppBar(
+        title: const Text('Journaling'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -126,7 +128,9 @@ class _JournalingState extends State<Journaling> {
               onPressed: () async {
                 final r = await openDialog();
                 if (r == null) return;
-                await DatabaseService(uid: currentUser!.uid).updateUserCoeff(r);
+                await DatabaseService(uid: currentUser.uid).updateUserCoeff(r);
+                _stopwatch.stop();
+                _stopwatch.reset();
               },
               child: const Text('My workout is over!'),
             ),
