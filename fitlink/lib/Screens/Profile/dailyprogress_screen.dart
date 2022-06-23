@@ -1,3 +1,5 @@
+import 'package:fitlink/Screens/Profile/journaling.dart';
+import 'package:fitlink/Screens/Profile/nut_plan.dart';
 import 'package:fitlink/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -93,10 +95,19 @@ class _DailyProgressState extends State<DailyProgress> {
                   Icon(LineAwesomeIcons.fruit_apple, size: kSpacingUnit.w * 2.5,
                   ),
                   SizedBox(width: kSpacingUnit.w*2.5,),
-                  Text("Eat following program", style: kCaptionTextStyle.copyWith(
-                    fontWeight: FontWeight.w500,
-                    ),
-                    ),
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PlanNUT()),
+                              );
+                    },
+                    child: Text("Eat following program", style: kCaptionTextStyle.copyWith(
+                      fontWeight: FontWeight.w500,
+                      ),
+                      ),
+                  ),
                     Spacer(),
                       Icon(LineAwesomeIcons.angle_right, size: kSpacingUnit.w * 2.5,
                       ),
@@ -139,10 +150,20 @@ class _DailyProgressState extends State<DailyProgress> {
                   Icon(LineAwesomeIcons.heartbeat, size: kSpacingUnit.w * 2.5,
                   ),
                   SizedBox(width: kSpacingUnit.w*2.5,),
-                  Text("Personal Journal", style: kCaptionTextStyle.copyWith(
-                    fontWeight: FontWeight.w500,
-                    ),
-                    ),
+                  InkWell(
+                    onTap: () {
+                       Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const Journaling()),
+                                    );
+                    },
+                    child: Text("Personal Journal", style: kCaptionTextStyle.copyWith(
+                      fontWeight: FontWeight.w500,
+                      ),
+                      ),
+                  ),
                     Spacer(),
                       Icon(LineAwesomeIcons.angle_right, size: kSpacingUnit.w * 2.5,
                       ),
