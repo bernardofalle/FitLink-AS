@@ -1,40 +1,39 @@
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitlink/constants.dart';
-import 'package:fitlink/services/database.dart';
-import 'package:flutter/material.dart';
 
-class PlanT extends StatefulWidget {
-  PlanT({Key? key}) : super(key: key);
+class MyPlan extends StatefulWidget {
+  MyPlan({Key? key}) : super(key: key);
 
   @override
-  State<PlanT> createState() => _PlanTState();
+  State<MyPlan> createState() => _MyPlanState();
 }
 
-class _PlanTState extends State<PlanT> {
+class _MyPlanState extends State<MyPlan> {
   @override
   Widget build(BuildContext context) {
-
     final FirebaseAuth auth = FirebaseAuth.instance;
     String currentUser = auth.currentUser!.uid;
-    Stream<QuerySnapshot<Map<String, dynamic>>> ptPlans = FirebaseFirestore.instance.collection('ptplans').snapshots();
+    print(currentUser);
+    Stream<DocumentSnapshot<Map<String, dynamic>>> ptPlans = FirebaseFirestore.instance.collection('userPlans').doc(currentUser).snapshots();
 
     Future<Map<String, String>> plan;
 
     return Scaffold(
         appBar: AppBar(
-        title: Text("Personal Trainer Plan"),
+        title: Text("My Plan"),
         backgroundColor: kDarkPrimaryColor,
       ),
             body: Container(
-            child: StreamBuilder<QuerySnapshot>(
+            child: StreamBuilder<DocumentSnapshot>(
               stream: ptPlans, 
               builder: (
                 BuildContext context, 
-                AsyncSnapshot<QuerySnapshot> snapshot,
+                AsyncSnapshot<DocumentSnapshot> snapshot,
                 ) {
                   if(snapshot.hasError){
-                    return Text("Something went wron.");
+                    return Text("Something went wrong.");
                   }
                   if(snapshot.connectionState == ConnectionState.waiting){
                     return Text("Loading");
@@ -43,7 +42,7 @@ class _PlanTState extends State<PlanT> {
                   final data = snapshot.requireData;
 
                   return ListView.builder(
-                    itemCount: data.size ,
+                    itemCount: 1,
                     itemBuilder: (context, index){
                       return Container(
                         margin: EdgeInsets.only(top: 20),
@@ -62,7 +61,7 @@ class _PlanTState extends State<PlanT> {
                               },
 
                             label: 
-                            Text("This is your ${data.docs[index]['description']}.\n\nMonday Plan: \n${data.docs[index]['monday']}\n\nTuesday Plan: \n${data.docs[index]['tuesday']}\n\nThursday Plan: \n${data.docs[index]['thursday']}\n\nFriday Plan: \n${data.docs[index]['friday']}"), // <-- Text
+                            Text("This is your Plan.\n\nMonday Plan: \n${data['monday']}\n\nTuesday Plan: \n${data['tuesday']}\n\nWednesday Plan: \n${data['wednesday']}\n\nThursday Plan: \n${data['thursday']}\n\nFriday Plan: \n${data['friday']}\n\nSaturday Plan: \n${data['saturday']}\n\nSunday Plan: \n${data['sunday']}"), // <-- Text
                             icon: Icon( // <-- Icon
                               Icons.access_alarm_sharp,
                               size: 50.0,
