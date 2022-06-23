@@ -59,8 +59,8 @@ class _PlanNUTState extends State<PlanNUT> {
                         // aqui dar update a db e bazar da pagina
                       },
 
-                      label: Text(
-                          " ${data.docs[index]['daysofweek']}"), // <-- Text
+                      label: 
+                          Text("This is your Eating Plan.\n\nMonday Plan: \n${data.docs[index]['monday']}\n\nTuesday Plan: \n${data.docs[index]['tuesday']}\n\nWednesday Plan: \n${data.docs[index]['Wednesday']}\n\nThursday Plan: \n${data.docs[index]['thursday']}\n\nFriday Plan: \n${data.docs[index]['friday']}\n\nSaturday Plan: \n${data.docs[index]['saturday']}\n\nSunday Plan: \n${data.docs[index]['sunday']}"), // <-- Text
                       icon: const Icon(
                         // <-- Icon
                         Icons.access_alarm_sharp,
