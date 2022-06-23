@@ -3,10 +3,8 @@ import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitlink/constants.dart';
-import 'package:fitlink/services/auth.dart';
 import 'package:fitlink/services/database.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 String formatTime(int milliseconds) {
   var secs = milliseconds ~/ 1000;
@@ -98,7 +96,6 @@ class _JournalingState extends State<Journaling> {
                 (d * pow(x, 3)) +
                 (e * pow(x, 4)) +
                 (f * pow(x, 5))));
-    print(result);
 
     Navigator.of(context).pop(result.toString());
   }
@@ -148,14 +145,18 @@ class _JournalingState extends State<Journaling> {
                 if (snapshot.hasData && !snapshot.data!.exists) {
                   return const Text("Document does not exist");
                 }
+                if (snapshot.connectionState == ConnectionState.done ||
+                    snapshot.connectionState == ConnectionState.waiting) {
+                  Map<String, dynamic> data =
+                      snapshot.data!.data() as Map<String, dynamic>;
 
-                Map<String, dynamic> data =
-                    snapshot.data!.data() as Map<String, dynamic>;
-                return Text(
-                  "Your current wilks coefficient is : ${data['wilks_coeff']}",
-                  style: kTitleTextStyle,
-                  textAlign: TextAlign.center,
-                );
+                  return Text(
+                    "Your current wilks coefficient is : ${data['wilks_coeff']}",
+                    style: kTitleTextStyle,
+                    textAlign: TextAlign.center,
+                  );
+                }
+                return const Text('loading...');
               },
             ),
           ],

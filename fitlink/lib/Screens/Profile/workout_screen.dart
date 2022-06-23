@@ -4,16 +4,13 @@ import 'package:fitlink/Screens/Profile/makeplan.dart';
 import 'package:fitlink/Screens/Profile/my_plan_screen.dart';
 import 'package:fitlink/Screens/Profile/plan_temp.dart';
 import 'package:fitlink/constants.dart';
-import 'package:fitlink/services/auth.dart';
-import 'package:fitlink/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 
 class WorkoutScreen extends StatefulWidget {
-  WorkoutScreen({Key? key}) : super(key: key);
+  const WorkoutScreen({Key? key}) : super(key: key);
 
   @override
   State<WorkoutScreen> createState() => _WorkoutScreenState();
@@ -28,7 +25,6 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
   List<String> Yplans = [
     'My plan #1',
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -111,13 +107,13 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                 }),
             Container(
               margin: const EdgeInsets.only(left: 130, right: 130, top: 20),
-              child: ElevatedButton (
+              child: ElevatedButton(
                 onPressed: () {
-                    print("exists");
-                    Navigator.push(
+                  print("exists");
+                  Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => PlanT()),
-                   );
+                  );
 
                   //DatabaseService(uid: currentUser).getPTplans();
                 },
@@ -180,19 +176,18 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
                     child: Text(Yplans[index] + "\n"),
                     onTap: () async {
                       if (await checkIfDocExists(currentUser)) {
-                         Navigator.push(
-                            context,
+                        Navigator.push(context,
                             MaterialPageRoute(builder: (context) => MyPlan()));
                       } else {
                         Fluttertoast.showToast(
-                        msg: "Please create a plan first!",
-                        toastLength: Toast.LENGTH_SHORT,
-                        gravity: ToastGravity.CENTER,
-                        timeInSecForIosWeb: 1,
-                        backgroundColor: Colors.black,
-                        textColor: Colors.pink,
-                        fontSize: 16.0);
-                      }  
+                            msg: "Please create a plan first!",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            timeInSecForIosWeb: 1,
+                            backgroundColor: Colors.black,
+                            textColor: Colors.pink,
+                            fontSize: 16.0);
+                      }
                     },
                   );
                 }),
@@ -230,6 +225,7 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
       ),
     );
   }
+
   Future<bool> checkIfDocExists(String docId) async {
     try {
       // Get reference to Firestore collection
@@ -242,4 +238,3 @@ class _WorkoutScreenState extends State<WorkoutScreen> {
     }
   }
 }
-

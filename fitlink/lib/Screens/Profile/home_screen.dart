@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitlink/Screens/Profile/dailyprogress_screen.dart';
 import 'package:fitlink/Screens/Profile/journaling.dart';
 import 'package:fitlink/Screens/Profile/nut_plan.dart';
@@ -24,6 +26,11 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
+    final FirebaseAuth auth = FirebaseAuth.instance;
+    User? currentUser = auth.currentUser;
+    DocumentReference mainDB =
+        FirebaseFirestore.instance.collection('mainDB').doc(currentUser!.uid);
+
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.only(top: 8),
@@ -73,10 +80,30 @@ class _HomeScreenState extends State<HomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Text('Hello, ', style: kTitleTextStyle2),
-                  Text(
-                    'Catarina',
-                    style: kTitleTextStyle2,
-                  )
+                  FutureBuilder<DocumentSnapshot>(
+                    future: mainDB.get(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<DocumentSnapshot> snapshot) {
+                      if (snapshot.hasError) {
+                        return const Text("Something went wrong");
+                      }
+
+                      if (snapshot.hasData && !snapshot.data!.exists) {
+                        return const Text("Document does not exist");
+                      }
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        Map<String, dynamic> data =
+                            snapshot.data!.data() as Map<String, dynamic>;
+                        return Text(
+                          "${data['name']}",
+                          style: kTitleTextStyle2,
+                          textAlign: TextAlign.center,
+                        );
+                      }
+
+                      return const Text("loading");
+                    },
+                  ),
                 ],
               ),
             ),
