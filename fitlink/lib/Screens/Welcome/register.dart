@@ -66,7 +66,7 @@ class RegisterScreen extends StatelessWidget {
                     textColor: Colors.white,
                     fontSize: 16.0);
               }
-              if (emailController.text.contains("@") != true ||
+              else if (emailController.text.contains("@") != true ||
                   emailController.text.contains(".") != true) {
                 Fluttertoast.showToast(
                     msg: "Please use a valid email: ______@___.___",
