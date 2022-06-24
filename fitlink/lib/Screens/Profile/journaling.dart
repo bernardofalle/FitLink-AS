@@ -159,6 +159,13 @@ class _JournalingState extends State<Journaling> {
                 return const Text('loading...');
               },
             ),
+            const SizedBox(
+              height: 40.0,
+            ),
+            const Text(
+              "The wilks coefficient is a way for you to compare yourself to other athletes that lift weights!",
+              textAlign: TextAlign.center,
+            ),
           ],
         ),
       ),
