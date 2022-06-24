@@ -2,6 +2,8 @@
 
 A new Flutter project that aims at contributing to the well being of the users, providing the help to achieve the desired results.
 
+REPO : https://github.com/bernardofalle/FitLink-AS
+
 ---
 ## Login and Register
 
@@ -22,6 +24,6 @@ Finally, you can go to the 'Journaling' page, and start your workout! You will h
 | Name | Github | Email |   
 |------|--------|-------|
 | Bernardo Falé | [bernardofalle](https://github.com/bernardofalle) | mbfale@ua.pt |
-| Rodrigo Faria | [](https://github.com/) | @ua.pt |
+| Rodrigo Faria | [jrfaria](https://github.com/jrfaria) | jrfaria@ua.pt |
 | Mariana Silva | [marianabarbara](https://github.com/marianabarbara) | marianabarbara@ua.pt |
 | Manuel Couto | [coutooo](https://github.com/coutooo) | manuelcouto10@ua.pt |
