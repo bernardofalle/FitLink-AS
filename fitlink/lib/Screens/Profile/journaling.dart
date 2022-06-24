@@ -146,15 +146,18 @@ class _JournalingState extends State<Journaling> {
                   return const Text("Document does not exist");
                 }
                 if (snapshot.connectionState == ConnectionState.done ||
-                    snapshot.connectionState == ConnectionState.waiting) {
-                  Map<String, dynamic> data =
-                      snapshot.data!.data() as Map<String, dynamic>;
+                    snapshot.connectionState == ConnectionState.waiting ) {
+                      if(snapshot.hasData)
+                      {
+                        Map<String, dynamic> data =
+                        snapshot.data?.data() as Map<String, dynamic>;
 
-                  return Text(
-                    "Your current wilks coefficient is : ${data['wilks_coeff']}",
-                    style: kTitleTextStyle,
-                    textAlign: TextAlign.center,
-                  );
+                        return Text(
+                          "Your current wilks coefficient is : ${data['wilks_coeff']}",
+                          style: kTitleTextStyle,
+                          textAlign: TextAlign.center,
+                        );
+                      }
                 }
                 return const Text('loading...');
               },
