@@ -8,7 +8,8 @@ REPO : https://github.com/bernardofalle/FitLink-AS
 ## Login and Register
 
 If it's the first time you are opening the app, register and create a new account with your name and email! We will store your data if you have the valid credentials, and you will be redirected to the home page, where you'll see the several sections of the app and get a nice welcoming message!
-For test purposes you can use this account email: catarina@ua.pt password: 123456 
+For test purposes you can use this account email: catarina@ua.pt password: 123456
+
 ---
 ## Application workflow
 Firstly you should pick your coaches(Personal Trainer and Nutritionist). For that, you should go to your profile, click the little star in the upper right corner, and proceed to pick the coaches based on your preferences. The displayed PT's and nutritionists are the available coaches in the database at this time.
