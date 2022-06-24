@@ -8,6 +8,7 @@ REPO : https://github.com/bernardofalle/FitLink-AS
 ## Login and Register
 
 If it's the first time you are opening the app, register and create a new account with your name and email! We will store your data if you have the valid credentials, and you will be redirected to the home page, where you'll see the several sections of the app and get a nice welcoming message!
+For test purposes you can use this account email: catarina@ua.pt password: 123456
 
 ---
 ## Application workflow
